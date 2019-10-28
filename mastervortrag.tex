@@ -6,7 +6,20 @@
 \setmainlanguage{german}
 
 \usepackage{csquotes}
+
+%% Macros for Quote
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip1em
+  \hbox{}\nobreak\hfill #1%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\vspace*{5mm}\signed{\usebox\mybox}\end{quote}}
     
+%% \Macros
+
 \usepackage{appendixnumberbeamer} 
 
 \usepackage{caption}
@@ -156,6 +169,44 @@
    \end{columns}
 \end{frame}
 
+%%% 1. Einführung in PROPOSAL
+
+\begin{frame}
+      \begin{aquote}{"Der Leptonpropagator PROPOSAL" - Dissertation von Jan-Hendrik Köhne}
+      Ziel ist es ein Monte-Carlo Programm zu entwickeln, welches einerseits die bei der \textcolor{red}{Propagation von Leptonen} auftauchende große Anzahl an Wechselwirkungen (einige tausend)
+      mit \textcolor{red}{großer Genauigkeit} beschreibt und andererseits den \textcolor{red}{algorithmischen Fehler} so gering wie möglich hält. 
+      \end{aquote}
+\end{frame}
+
+
+\begin{frame}
+  \Huge
+  \begin{align*}
+      \frac{\mathrm{d}\sigma}{\mathrm{d}v} \quad \underbrace{\longrightarrow}_{?} \quad \text{Energieverluste}
+  \end{align*}\\[1cm]
+  \large
+  \centering
+  mit $v$ dem relativen Energieverlust eines Primärteilchens
+\end{frame}
+
+
+
+\begin{frame}
+  \huge
+  \begin{align*}
+      \underset{\text{stochastische Verluste}}{v > v_\text{cut}} &&  \underset{\text{kontinuierliche Verluste}}{v < v_\text{cut}}
+  \end{align*}\\
+  \vspace{20px}
+    \Large
+    \centering
+  mit $v_\text{cut} = \text{min}\left[\sfrac{e_\text{cut}}{E}, v\prime_\text{cut} \right]$
+\end{frame}
+
+%%% 2. Seltene Prozesse
+
+%%% 3. Schauerpropagation
+
+%%% 4. Ergebnisse
 
 
 %%% End
