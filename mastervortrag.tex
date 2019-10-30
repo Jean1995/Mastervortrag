@@ -34,16 +34,16 @@
   \end{varwidth}%
 }
 
-\AtBeginSection[]{
-  \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
-  \end{frame}
-}
+%\AtBeginSection[]{
+%  \begin{frame}
+%  \vfill
+%  \centering
+%  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+%    \usebeamerfont{title}\insertsectionhead\par%
+%  \end{beamercolorbox}
+%  \vfill
+%  \end{frame}
+%}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -85,23 +85,20 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 
-\tikzstyle{decision} = [rectangle, draw, fill=tucitron!20, 
-    text width=15em, text centered, rounded corners, minimum height=2em]
-\tikzstyle{onlytext} = [rectangle, draw=none, 
-    text width=15em, text centered, rounded corners, minimum height=2em]
-\tikzstyle{block} = [rectangle, draw, fill=tugreen!20, 
-    text width=20em, text centered, rounded corners, minimum height=2em]
- \tikzstyle{blockH} = [rectangle, draw, fill=tugreen, 
-    text width=20em, text centered, rounded corners, minimum height=2em]
-\tikzstyle{smallblock} = [rectangle, draw, fill=tugreen!20, 
-    text width=14em, text centered, rounded corners, minimum height=2em]
-\tikzstyle{smallblockH} = [rectangle, draw, fill=tugreen, 
-    text width=14em, text centered, rounded corners, minimum height=2em]
+
+\tikzstyle{block} = [rectangle, draw, thick, fill=tugreen!20, 
+    text width=20em, text centered, minimum height=2em]
+
+ \tikzstyle{blockH} = [rectangle, draw, thick, fill=tugreen, 
+    text width=20em, text centered, minimum height=2em]
+
+\tikzstyle{smallblock} = [rectangle, draw, thick, fill=tugreen!20, 
+    text width=14em, text centered, minimum height=2em]
+\tikzstyle{smallblockH} = [rectangle, draw, thick, fill=tugreen, 
+    text width=14em, text centered, minimum height=2em]
+
 \tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
-    minimum height=2em]
-\tikzstyle{blocksmall} = [rectangle, draw, fill=tugreen!20, 
-    text width=10em, text centered, rounded corners, minimum height=2em]
+
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
@@ -171,6 +168,8 @@
 
 %%% 1. Einführung in PROPOSAL
 
+\section{Einführung in PROPOSAL - Motivation}
+
 \begin{frame}
       \begin{aquote}{"Der Leptonpropagator PROPOSAL" - Dissertation von Jan-Hendrik Köhne}
       Ziel ist es ein Monte-Carlo Programm zu entwickeln, welches einerseits die bei der \textcolor{red}{Propagation von Leptonen} auftauchende große Anzahl an Wechselwirkungen (einige tausend)
@@ -178,6 +177,33 @@
       \end{aquote}
 \end{frame}
 
+\begin{frame}
+  \begin{columns}
+    \column{0.62\textwidth}
+    \begin{center}
+      \begin{itemize}
+        \setlength\itemsep{0.5em}
+        \item \textbf{PROPOSAL}: \CC-Bibliothek mit Python Bindings
+        \item Simulation der physikalischen Wechselwirkungen hochenergetischer Teilchen
+        \begin{itemize}
+          \item[$\rightarrow$] Energieverluste durch Interaktionen
+          \item[$\rightarrow$] Vielfachstreuung
+          \item[$\rightarrow$] Zerfall am Ende der Lebensdauer
+        \end{itemize}
+      \end{itemize}
+  \end{center}
+  \column{0.35\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[width=0.8\linewidth]{plots/github.pdf}
+           \captionsetup{format=myformat}
+          \caption*{https://github.com/tudo-astroparticlephysics/PROPOSAL}
+      \end{figure}
+  \end{columns}
+
+\end{frame}
+
+\section{Einführung in PROPOSAL - Algorithmus}
 
 \begin{frame}
   \Huge
@@ -189,8 +215,6 @@
   mit $v$ dem relativen Energieverlust eines Primärteilchens
 \end{frame}
 
-
-
 \begin{frame}
   \huge
   \begin{align*}
@@ -200,6 +224,117 @@
     \Large
     \centering
   mit $v_\text{cut} = \text{min}\left[\sfrac{e_\text{cut}}{E}, v\prime_\text{cut} \right]$
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[node distance = 1.2cm, auto]
+          % Place nodes
+          \footnotesize
+
+          \node [smallblock] (zero) {Startenergie $E_i$};
+          \onslide<1>{\node [smallblockH] (zero) {Startenergie $E_i$};}
+
+          \node [block, below of=zero] (one) {Würfle Energie $E_f$ bei welcher der nächste stoch. Verlust auftritt};
+          \onslide<2>{\node [blockH, below of=zero] (one) {Würfle Energie $E_f$ bei welcher der nächste stoch. Verlust auftritt};}
+      
+          \node [block, below of=one] (two) {Berechnte Strecke bis zum nächsten stoch. Verlust};
+          \onslide<3>{\node [blockH, below of=one] (two) {Berechnte Strecke bis zum nächsten stoch. Verlust};}
+      
+          \node [block, below of=two] (three) {Würfle Art des stoch. Verlustes};
+          \onslide<4>{\node [blockH, below of=two] (three) {Würfle Art des stoch. Verlustes};}
+      
+          \node [block, below of=three] (four) {Würfle Größe des stoch. Verlustes};
+          \onslide<5>{\node [blockH, below of=three] (four) {Würfle Größe des stoch. Verlustes};}
+
+          \node [block, below of=four] (five) {Wiederhole bis $E < e_\text{low}$ oder Teilchen zerfallen};
+          \onslide<6>{\node [blockH, below of=four] (five) {Wiederhole bis $E < e_\text{low}$ oder Teilchen zerfallen};}
+      
+          % Draw edges
+          \path [line, ultra thick] (zero) -- (one);
+          \path [line, ultra thick] (one) -- (two);
+          \path [line, ultra thick] (two) -- (three);
+          \path [line, ultra thick] (three) -- (four);
+          \path [line, ultra thick] (four) -- (five);
+        \end{tikzpicture}
+
+  \end{center}
+
+  \column{0.4\textwidth}
+      \onslide<2>
+      {
+          \begin{block}{Energieintegral}
+          \begin{align*}
+            \int_{E_i}^{E_f} \frac{\sigma\left(E\right)}{-f\left(E\right)} \cdot \mathrm{d}E = -\log{\left( \xi \right)} 
+          \end{align*}
+          \end{block}
+      }
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+
+  \begin{tikzpicture}[node distance = 1.8cm, auto]
+    % Place nodes
+    \small
+    \node [block] (one) {Continuous randomization};
+
+    \node [smallblock, below of=one] (two) {Sample type of stochastic loss};
+    \onslide<3>{\node [smallblockH, below of=one] (two) {Sample type of stochastic loss};}
+
+
+
+    \node [smallblock, below of=two] (four) {Sample energy loss};
+    \onslide<4>{\node [smallblockH, below of=two] (four) {Sample energy loss};}
+
+    \node [block, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and particle not decayed};
+    \onslide<5>{\node [blockH, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and if particle has not decayed};}
+
+    % Draw edges
+    \path [line, ultra thick] (one) -- (two);
+    \path [line, ultra thick] (two) -- (four);
+    \path [line, ultra thick] (four) -- (five);
+
+  \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+  \begin{tikzpicture}[node distance = 1.8cm, auto]
+    % Place nodes
+    \small
+    \node [block] (one) {Continuous randomization};
+
+    \node [smallblock, below of=one] (two) {Sample type of stochastic loss};
+    \onslide<3>{\node [smallblockH, below of=one] (two) {Sample type of stochastic loss};}
+
+
+    \node [smallblock, right of=two, node distance=7.5cm] (three) {Sample decay};
+    \onslide<2>{\node [smallblockH, right of=two, node distance=7.5cm] (three) {Sample decay};}
+
+
+    \node [smallblock, below of=two] (four) {Sample energy loss};
+    \onslide<4>{\node [smallblockH, below of=two] (four) {Sample energy loss};}
+
+    \node [block, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and particle not decayed};
+    \onslide<5>{\node [blockH, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and if particle has not decayed};}
+
+    % Draw edges
+    \path [line, ultra thick] (one) -- (two);
+    \path [line, ultra thick] (one) -| (three);
+    \path [line, ultra thick] (three) |- (five);
+    \path [line, ultra thick] (two) -- (four);
+    \path [line, ultra thick] (four) -- (five);
+
+  \end{tikzpicture}
+
 \end{frame}
 
 %%% 2. Seltene Prozesse
