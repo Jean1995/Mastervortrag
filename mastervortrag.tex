@@ -80,6 +80,8 @@
   mathrm=sym,
 }
 
+% Flow chart stuff
+
 \usepackage{tikz-feynman}
 \usepackage{xfrac}
 \usepackage{tikz}
@@ -98,6 +100,15 @@
     text width=14em, text centered, minimum height=2em]
 
 \tikzstyle{line} = [draw, -latex']
+
+
+% Evaluate at command
+
+\NewDocumentCommand{\evalat}{sO{\big}mm}{%
+  \IfBooleanTF{#1}
+   {\mleft. #3 \mright|_{#4}}
+   {#3#2|_{#4}}%
+}
 
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
@@ -227,8 +238,6 @@
 \end{frame}
 
 
-
-
 \begin{frame}[fragile]
   \begin{columns}
     \column{0.55\textwidth}
@@ -261,80 +270,78 @@
           \path [line, ultra thick] (two) -- (three);
           \path [line, ultra thick] (three) -- (four);
           \path [line, ultra thick] (four) -- (five);
+
+          \onslide<6>
+          { 
+            \path [line, ultra thick] (five.east) -- +(1,0) |- node[pos=0.25] {} (one);
+          }
         \end{tikzpicture}
 
   \end{center}
 
+
   \column{0.4\textwidth}
-      \onslide<2>
-      {
-          \begin{block}{Energieintegral}
+  \begin{overprint}
+      \only<1>
+      {      
+          \centering
+          \begin{block}{Initialisierung}
+          Setze $E_i, \vec{r_i}, \vec{d_i}, \dots$ für zu propagierendes Teilchen
+          \end{block}
+      }
+
+      \only<2>
+      { 
+        \centering
+        \begin{block}{Energieintegral}
           \begin{align*}
             \int_{E_i}^{E_f} \frac{\sigma\left(E\right)}{-f\left(E\right)} \cdot \mathrm{d}E = -\log{\left( \xi \right)} 
           \end{align*}
-          \end{block}
+          \begin{itemize}
+            \item $\sigma\left(E\right) = \sigma_\text{\tiny tot, stoch}$ \\[0.25cm]
+            \item $f\left(E\right) = \evalat{\frac{\mathrm{d}E}{\mathrm{d}x}}{\text{\tiny kont.}} \propto E \int_{v_\text{min}}^{v_\text{cut}} v \frac{\mathrm{d}\sigma}{\mathrm{d}v}\mathrm{d}v$  \\[0.25cm]
+            \item $\xi \in \left[0, 1 \right)$
+          \end{itemize}
+        \end{block}
       }
+
+      \only<3>
+      { 
+        \centering
+        \begin{block}{Spurintegral}
+          \begin{align*}
+            x_f = x_i - \int_{E_i}^{E_f} \frac{\mathrm{d}E}{f\left(E\right)} 
+          \end{align*}
+
+          \begin{itemize}
+            \item $f\left(E\right) = \evalat{\frac{\mathrm{d}E}{\mathrm{d}x}}{\text{\tiny kont.}} \propto E \int_{v_\text{min}}^{v_\text{cut}} v \frac{\mathrm{d}\sigma}{\mathrm{d}v}\mathrm{d}v$ 
+          \end{itemize}        
+        \end{block}
+      }
+
+      \only<4>
+      { 
+        \centering
+        \begin{block}{Stochastischer Verlust}
+          Vergleiche $\sigma_\text{tot, stoch}$ der verschiedenen Wechselwirkungen.\\
+        \end{block}
+      }
+
+      \only<5>
+      { 
+        \centering
+        \begin{block}{Stochastischer Verlust}
+          \begin{align*}
+              \frac{1}{\sigma_{i, \text{tot}}} \int_{v_\text{cut}}^v \frac{\mathrm{d}\sigma_i}{\mathrm{d}v} = \xi
+          \end{align*}
+        \end{block}
+        \begin{itemize}
+            \item $i \hat{=}$ zuvor bestimmte Wechselwirkung \\[0.25cm]
+            \item $\xi \in \left[0, 1 \right)$
+        \end{itemize}
+      }
+  \end{overprint}
   \end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-
-  \begin{tikzpicture}[node distance = 1.8cm, auto]
-    % Place nodes
-    \small
-    \node [block] (one) {Continuous randomization};
-
-    \node [smallblock, below of=one] (two) {Sample type of stochastic loss};
-    \onslide<3>{\node [smallblockH, below of=one] (two) {Sample type of stochastic loss};}
-
-
-
-    \node [smallblock, below of=two] (four) {Sample energy loss};
-    \onslide<4>{\node [smallblockH, below of=two] (four) {Sample energy loss};}
-
-    \node [block, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and particle not decayed};
-    \onslide<5>{\node [blockH, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and if particle has not decayed};}
-
-    % Draw edges
-    \path [line, ultra thick] (one) -- (two);
-    \path [line, ultra thick] (two) -- (four);
-    \path [line, ultra thick] (four) -- (five);
-
-  \end{tikzpicture}
-
-\end{frame}
-
-
-\begin{frame}[fragile]
-
-  \begin{tikzpicture}[node distance = 1.8cm, auto]
-    % Place nodes
-    \small
-    \node [block] (one) {Continuous randomization};
-
-    \node [smallblock, below of=one] (two) {Sample type of stochastic loss};
-    \onslide<3>{\node [smallblockH, below of=one] (two) {Sample type of stochastic loss};}
-
-
-    \node [smallblock, right of=two, node distance=7.5cm] (three) {Sample decay};
-    \onslide<2>{\node [smallblockH, right of=two, node distance=7.5cm] (three) {Sample decay};}
-
-
-    \node [smallblock, below of=two] (four) {Sample energy loss};
-    \onslide<4>{\node [smallblockH, below of=two] (four) {Sample energy loss};}
-
-    \node [block, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and particle not decayed};
-    \onslide<5>{\node [blockH, below of=four] (five) {Repeat algorithm if $E > e_\text{low}$ and if particle has not decayed};}
-
-    % Draw edges
-    \path [line, ultra thick] (one) -- (two);
-    \path [line, ultra thick] (one) -| (three);
-    \path [line, ultra thick] (three) |- (five);
-    \path [line, ultra thick] (two) -- (four);
-    \path [line, ultra thick] (four) -- (five);
-
-  \end{tikzpicture}
-
 \end{frame}
 
 %%% 2. Seltene Prozesse
