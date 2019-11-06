@@ -165,8 +165,24 @@
             \setbeamercolor{block body}{fg=darkgray, bg=tulight}
 
             \begin{block}{2. Seltene Prozesse}
-
+            \centering
+            \vspace{2mm}
+			\resizebox{!}{0.15\textheight}{%
+      			\begin{tikzpicture}
+      				\centering
+      				 
+      				\fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
+				
+	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
+				
+	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
+				
+	  				\draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+   				\end{tikzpicture}
+   			}
+   		\vspace{3mm}
             \end{block}
+
        \end{column}
    \end{columns}
    \begin{columns}
@@ -217,8 +233,24 @@
             \setbeamercolor{block body}{fg=darkgray, bg=gray}
 
             \begin{block}{2. Seltene Prozesse}
-
+            \centering
+            \vspace{2mm}
+			\resizebox{!}{0.15\textheight}{%
+      			\begin{tikzpicture}
+      				\centering
+      				 
+      				\fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
+				
+	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
+				
+	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
+				
+	  				\draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+   				\end{tikzpicture}
+   			}
+   			\vspace{3mm}
             \end{block}
+
        \end{column}
    \end{columns}
    \begin{columns}
@@ -349,7 +381,6 @@
 
   \end{center}
 
-
   \column{0.4\textwidth}
   \begin{overprint}
       \only<1>
@@ -414,6 +445,7 @@
   \end{columns}
 \end{frame}
 
+
 \begin{frame}
   \begin{figure}
       \begin{overprint}
@@ -428,6 +460,8 @@
   \end{figure}
 \end{frame}
 
+\section{Einführung in PROPOSAL - Prozesse}
+
 \begin{frame}
   \begin{figure}
       \centering
@@ -440,6 +474,8 @@
 %%% 2. Seltene Prozesse
 
 % Contents slide
+
+\section{}
 
 \begin{frame}{Inhalt}
    \begin{columns}
@@ -461,7 +497,22 @@
             \setbeamercolor{block body}{fg=darkgray, bg=tulight}
 
             \begin{block}{2. Seltene Prozesse}
-
+            \centering
+            \vspace{2mm}
+			\resizebox{!}{0.15\textheight}{%
+      			\begin{tikzpicture}
+      				\centering
+      				 
+      				\fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
+				
+	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
+				
+	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
+				
+	  				\draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+   				\end{tikzpicture}
+   			\vspace{3mm}
+   			}
             \end{block}
        \end{column}
    \end{columns}
@@ -489,12 +540,260 @@
    \end{columns}
 \end{frame}
 
+% Myon Paarproduktion
+
+\section{Seltene Prozesse - Myon-Paarproduktion}
+
+\begin{frame}{Myonpaarproduktion}
+  \begin{columns}
+
+    \column{0.45\textwidth}
+    \begin{center}
+      \begin{tikzpicture}
+      \centering
+       % Sizes
+       \pgfmathsetmacro{\len}{0.05cm}
+       \pgfmathsetmacro{\halflen}{\len/4}
+       \pgfmathsetmacro{\vertexsize}{\len/20}
+       \begin{feynman}
+           % vertices
+           \vertex (a) at (0, 0);
+           \vertex (b) at (0, -1*\len);
+           \vertex (d) at (-0.5*\len, 0.5*\len);
+           \vertex (c) at (-0.5*\len, -1.5*\len);
+           \vertex (i1) at (-1.5*\len, 0.5*\len);
+           \vertex (i2) at (0, 1.5*\len);
+           \vertex (f1) at (\len, 0.5*\len);
+           \vertex (f2) at (\len, -1.5*\len);
+           \vertex (f3) at (0.5, 1*\len);
+           \vertex (z1) at (-1.25*\len, -1.75*\len);
+           \vertex (z2) at (0.25, -1.75*\len);
+     
+           % draw diagram
+           \diagram* {
+             (i1) -- [fermion] (d) -- [fermion] (f3),
+             (d) -- [boson] (a),
+             (f1) -- [fermion] (a),
+             (a) -- [fermion] (b),
+             (b) -- [fermion] (f2),
+             (b) -- [boson] (c),
+           };
+           \draw[thick, double] (z1) -- (c) -- (z2);
+     
+           % labels
+           \node[left] at (i1) {$\mu_\text{i}$};
+           \node[right] at (f3) {$\mu_\text{f}$};
+           \node[right] at (f1) {$\mu^+$};
+           \node[right] at (f2) {$\mu^-$};
+           \node[left] at (z1) {$Z$};
+           \node[right] at (z2) {$Z$};
+      \end{feynman}
+    \end{tikzpicture}
+  \end{center}
+  \column{0.55\textwidth}
+    Mit dem auf das Myonpaar übertragenen Energieanteil:
+      \begin{align*}
+        v = \frac{\left( \epsilon_+ + \epsilon_- \right)}{E} \\[-0.3cm]
+      \end{align*}
+
+    Mit dem Asymmetrieparameter:
+    \begin{align*}
+      \rho = \frac{\left( \epsilon_+ - \epsilon_- \right)}{\left( \epsilon_+ + \epsilon_- \right)} \\[-0.3cm]
+    \end{align*}
+
+    $E$: Initialenergie des eingehenden Myons $\mu_\text{i}$ \\
+    $\epsilon_\pm$: Energie des erzeugten (Anti)myon\\
+    $Z$: Atom(kern) im Medium
+
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{Differentieller Wirkungsquerschnitt}
+
+Analytische, approximative Formel für die Myonpaarproduktion\footnote{Kelner, Kokoulin, Petrukhin: Phys. of Atomic Nuclei, Vol. 63, No. 9, 2000, pp. 1603-1611}:
+\begin{align*}
+  \frac{\mathrm{d}\sigma}{\mathrm{d}v \mathrm{d}\rho} &= \frac{2}{3\pi} (Z \alpha r_\mu)^2 \frac{1-v}{v} \Phi(v, \rho) \ln \left( X \left(E, v, \rho \right) \right)
+\end{align*}
+
+\vspace{5mm}
+
+Abweichungen $\epsilon$ zur exakten Formel:
+\begin{itemize}
+	\item $\epsilon < 2\textendash3\si{\percent}$ für $E > \SI{30}{\giga\electronvolt}$
+	\item $\epsilon < 10\si{\percent}$ für $E < \SI{10}{\giga\electronvolt}$
+\end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 0.2cm,clip=true]{{plots/mupair_compare/mupair_compare}.pdf}
+      \caption*{Vergleich der kontinuierlichen Energieverluste (d.h. $v_\text{cut} = v_\text{max}$) in Stein.}
+      \label{fig:1}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 2cm,clip=true]{{plots/spectra/all_mupair_standardrock_stats_1000000_Emin_8.0_Emax_8.0_index_1}.pdf}
+      \caption*{Energieverluste von $\num{e6}$ Myonen einer Startenergie von $\SI{e8}{\mega\electronvolt}$ durch $\SI{100}{\metre}$ Stein.}
+      \label{fig:1}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Relevanz}
+	\textbf{IceCube-Ereignisse}
+	 \begin{itemize}
+	 	\item "Energieverluste" aufgrund von Myonpaarproduktion vernachlässigbar
+	 	\item Veränderte Signatur von einem Myon-Bündel im Vergleich zu einem einzelnen hochenergetischen Myon 
+	 \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Relevanz}
+	 \textbf{Luftschauer}\footnote{Kudryavtsev, Korolkova, Spooner: Physical Letter B 471, 1999, pp. 251-256}
+	 \begin{itemize}
+	 	\item Zwei mögliche Quellen für Myon-Bündel in Untergrundexperimenten:
+	 	\begin{itemize}
+	 		\item[$\rightarrow$] Hardronische Komponente in Luftschauern
+	 		\item[$\rightarrow$] Myonpaarproduktion in Stein/Wasser
+	 	\end{itemize}
+	 	\vspace{5mm}
+	 	\item Messe Anzahl und Eigenschaften von Myon-Bündeln
+	 	\begin{itemize}
+	 		\item[$\rightarrow$] Informationen über hadronische Wechselwirkungsmodelle
+	 		\item[$\rightarrow$] Informationen über Schauerkomposition
+	 	\end{itemize}
+	 \end{itemize}
+\end{frame}
+
+% Schwache Wechselwirkung
+
+\section{Seltene Prozesse - Schwache Wechselwirkung}
+
+\begin{frame}{Schwache Wechselwirkung}
+  \begin{columns}
+
+    \column{0.45\textwidth}
+    \begin{center}
+      \begin{tikzpicture}
+      \centering
+       % Sizes
+       \pgfmathsetmacro{\len}{0.05cm}
+       \pgfmathsetmacro{\halflen}{\len/4}
+       \pgfmathsetmacro{\vertexsize}{\len/20}
+       \begin{feynman}
+           % vertices
+           \vertex (a) at (-1*\len, 0.5*\len);
+           \vertex (b) at (0, 0);
+           \vertex (c) at (1*\len, 0.5*\len);
+           \vertex (d) at (0, -1.5*\len);
+           \vertex (e) at (-1*\len, -2*\len);
+           \vertex (f) at (1*\len, -2*\len);
+     
+           % draw diagram
+           \diagram* {
+             (a) -- [fermion] (b) -- [fermion] (c),
+             (b) -- [boson, edge label=\(W\)] (d),
+
+           };
+           \draw[thick, double] (e) -- (d) -- (f);
+     
+           % labels
+           \node[left] at (a) {$\mu$};
+           \node[right] at (c) {$\nu_{\mu}$};
+           %\node[right] at (f1) {$\mu^+$};
+           %\node[right] at (f2) {$\mu^-$};
+           \node[left] at (e) {$N$};
+           \node[right] at (f) {$X$};
+      \end{feynman}
+    \end{tikzpicture}
+  \end{center}
+
+  \column{0.56\textwidth}
+    \begin{itemize}
+      \item Stark unterdrückter Prozess
+      \item Rein stochastische Wechselwirkung (d.h. $v_\text{cut} = v_\text{min}$, kein Beitrag zu kontinuierlichen Verlusten)
+      \item Erhalte Wirkungsquerschnitt aus Crossing-Symmetrie:
+      \begin{align*}
+        \mathrm{d}\sigma\left( \mu N \rightarrow \nu_\mu X \right) = \frac{1}{2} \mathrm{d}\sigma\left( \nu_\mu X \rightarrow \mu N \right)
+      \end{align*}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \begin{columns}
+
+    \column{0.45\textwidth}
+    \begin{center}
+    \begin{figure}
+      \begin{tikzpicture}
+      \centering
+       
+      \fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
+
+	  \draw [line width=0.8mm, blue] (-0.5, 1.4) -- node[below] {$\tau$}  (0.9, 1.);
+
+	  \draw [line width=0.8mm, black, dashed] (-1.9, 1.8) -- node[below] {$\nu_{\tau}$}  (-0.5, 1.4);
+
+	  \draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{Zerfall}$]{};
+
+	  \draw[red,fill=red] (-0.5, 1.4) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+
+	  %\draw [->,>=stealth, line width=0.4mm, red] (1.25-0.175, 0.9+0.05) --  (1.25+0.175, 0.9-0.05);
+	  %\draw [->,>=stealth, line width=0.4mm, red] (1.25-0.175, 0.9+0.05) --  (1.25+0.175, 0.9-0.15);
+	  %\draw [line width=0.4mm, red] (1.25-0.175, 0.9+0.05) ->  (1.25+0.175, 0.9);
+    \end{tikzpicture}
+    \caption*{Lollipop-Signatur von $\tau$-Neutrinos}
+  \end{figure}
+  \end{center}
+
+  \begin{center}
+    \begin{figure}
+      \begin{tikzpicture}
+      \centering
+       
+      \fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
+
+	  \draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
+
+	  \draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
+
+	  \draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+
+	  %\draw [->,>=stealth, line width=0.4mm, red] (1.25-0.175, 0.9+0.05) --  (1.25+0.175, 0.9-0.05);
+	  %\draw [->,>=stealth, line width=0.4mm, red] (1.25-0.175, 0.9+0.05) --  (1.25+0.175, 0.9-0.15);
+	  %\draw [line width=0.4mm, red] (1.25-0.175, 0.9+0.05) ->  (1.25+0.175, 0.9);
+    \end{tikzpicture}
+    \caption*{Schwache Wechselwirkung von Myonen}
+  \end{figure}
+  \end{center}
+
+  \column{0.56\textwidth}
+    \begin{itemize}
+      \item Ähnlichkeiten mit hochenergetischen $\tau$-Events ("Lollipop-Signatur")
+      \item Möglicher Untergrund von bis zu $\SI{10}{\percent}$ bei Suchen nach $\tau$-Lollipop-Events in IceCube\footnotemark
+    \end{itemize}
+  \end{columns}
+  \footnotetext{Sandrock, Alexander: Higher-order corrections to the energy loss cross sections of high-energy muons, 2018, pp. 38-40}
+\end{frame}
+
 %%% 3. Schauerpropagation
 
 %%% 4. Ergebnisse
 
 
 %%% End
+
+\section{}
 
 \begin{frame}[t]
   \vspace{-5mm}
