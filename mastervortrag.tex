@@ -170,13 +170,9 @@
 			\resizebox{!}{0.15\textheight}{%
       			\begin{tikzpicture}
       				\centering
-      				 
-      				\fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
-				
-	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
-				
-	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
-				
+      							
+	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);			
+	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);			
 	  				\draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
    				\end{tikzpicture}
    			}
@@ -235,20 +231,16 @@
             \begin{block}{2. Seltene Prozesse}
             \centering
             \vspace{2mm}
-			\resizebox{!}{0.15\textheight}{%
-      			\begin{tikzpicture}
-      				\centering
-      				 
-      				\fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
-				
-	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
-				
-	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
-				
-	  				\draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
-   				\end{tikzpicture}
-   			}
-   			\vspace{3mm}
+      \resizebox{!}{0.15\textheight}{%
+            \begin{tikzpicture}
+              \centering
+                    
+            \draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);     
+            \draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);      
+            \draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+          \end{tikzpicture}
+        }
+      \vspace{3mm}
             \end{block}
 
        \end{column}
@@ -499,20 +491,16 @@
             \begin{block}{2. Seltene Prozesse}
             \centering
             \vspace{2mm}
-			\resizebox{!}{0.15\textheight}{%
-      			\begin{tikzpicture}
-      				\centering
-      				 
-      				\fill [lightgray] (0.0, 0.0) rectangle (3.0, 2.0);
-				
-	  				\draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);
-				
-	  				\draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);
-				
-	  				\draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
-   				\end{tikzpicture}
-   			\vspace{3mm}
-   			}
+      \resizebox{!}{0.15\textheight}{%
+            \begin{tikzpicture}
+              \centering
+                    
+            \draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);     
+            \draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);      
+            \draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+          \end{tikzpicture}
+        }
+      \vspace{3mm}
             \end{block}
        \end{column}
    \end{columns}
@@ -787,6 +775,109 @@ Abweichungen $\epsilon$ zur exakten Formel:
 \end{frame}
 
 %%% 3. Schauerpropagation
+
+% Contents slide
+
+\section{}
+
+\begin{frame}{Inhalt}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=darkgray}
+            \setbeamercolor{block body}{fg=darkgray, bg=gray}
+
+            \begin{block}{1. Einführung in PROPOSAL}
+              \centering
+                \vspace{2mm}
+              \includegraphics[height=0.15\textheight]{plots/muon_path.pdf}
+                \vspace{2mm}
+            \end{block}
+       \end{column}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=darkgray}
+            \setbeamercolor{block body}{fg=darkgray, bg=gray}
+
+            \begin{block}{2. Seltene Prozesse}
+            \centering
+            \vspace{2mm}
+      \resizebox{!}{0.15\textheight}{%
+            \begin{tikzpicture}
+              \centering
+                    
+            \draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);     
+            \draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);      
+            \draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+          \end{tikzpicture}
+        }
+      \vspace{3mm}
+            \end{block}
+       \end{column}
+   \end{columns}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=tugreen}
+            \setbeamercolor{block body}{fg=darkgray, bg=tulight}
+
+            \begin{block}{3. Schauerpropagation}
+            \end{block}
+       \end{column}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=darkgray}
+            \setbeamercolor{block body}{fg=darkgray, bg=gray}
+
+           \begin{block}{4. Ergebnisse}
+              \centering
+                \vspace{2mm}
+              \includegraphics[height=0.15\textheight]{plots/shower_nolegend.png}
+                \vspace{2mm}
+           \end{block}
+       \end{column}
+   \end{columns}
+\end{frame}
+
+\section{Luftschauer - Einführung}
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.80\textheight, trim=0.0cm 2.4cm 8.0cm 0.5cm,clip=true]{{plots/shower}.png}
+      \caption*{Skizze der Komponenten eines Luftschauers\footnotemark.}
+      \label{fig:1}
+  \end{figure}
+  \footnotetext{Geofísica Internacional 57(4):253-275, October 2018}
+\end{frame}
+
+
+\begin{frame}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \begin{center}
+      \begin{itemize}
+        \setlength\itemsep{0.5em}
+        \item \textbf{CORSIKA}: Programm zur Simulation von Teilchenschauern
+        \item Verschiedene Modelle zur Beschreibung der hadronischen Wechselwirkungen
+        \item Beschreibung der elektromagnetischen Wechselwirkungen durch \textbf{EGS4}
+        \begin{itemize}
+          \item[$\rightarrow$] Ziel: Ermögliche Nutzung von \textbf{PROPOSAL} in \textbf{CORSIKA 8}
+        \end{itemize}
+      \end{itemize}
+  \end{center}
+  \column{0.4\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[width=0.4\linewidth]{plots/corsika.png}
+           \captionsetup{format=myformat}
+          \caption*{Projektion eines Luftschauers, initiiert durch ein $\SI{100}{\giga\electronvolt}$ Photon\footnotemark.}
+      \end{figure}
+  \end{columns}
+\footnotetext{F. Schmidt, J. Knapp, https://www-zeuthen.desy.de/~jknapp/fs/showerimages.html}
+\end{frame}
+
 
 %%% 4. Ergebnisse
 
