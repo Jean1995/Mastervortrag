@@ -638,6 +638,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 \begin{frame}{Relevanz}
 	\textbf{IceCube-Ereignisse}
 	 \begin{itemize}
+	 	\setlength\itemsep{0.5em}
 	 	\item "Energieverluste" aufgrund von Myonpaarproduktion vernachlässigbar
 	 	\item Veränderte Signatur von einem Myon-Bündel im Vergleich zu einem einzelnen hochenergetischen Myon 
 	 \end{itemize}
@@ -647,6 +648,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 \begin{frame}{Relevanz}
 	 \textbf{Luftschauer}\footnote{Kudryavtsev, Korolkova, Spooner: Physical Letter B 471, 1999, pp. 251-256}
 	 \begin{itemize}
+	 	\setlength\itemsep{0.5em}	 	
 	 	\item Zwei mögliche Quellen für Myon-Bündel in Untergrundexperimenten:
 	 	\begin{itemize}
 	 		\item[$\rightarrow$] Hardronische Komponente in Luftschauern
@@ -839,7 +841,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
    \end{columns}
 \end{frame}
 
-\section{Luftschauer - Einführung}
+\section{Schauerpropagation - Einführung}
 
 
 \begin{frame}
@@ -876,6 +878,52 @@ Abweichungen $\epsilon$ zur exakten Formel:
       \end{figure}
   \end{columns}
 \footnotetext{F. Schmidt, J. Knapp, https://www-zeuthen.desy.de/~jknapp/fs/showerimages.html}
+\end{frame}
+
+
+\section{Schauerpropagation - $e^-$ und $e^+$ Propagation}
+
+% Ionisation
+
+\begin{frame}{Ionisation}
+	 \begin{itemize}
+	 	\setlength\itemsep{0.5em}
+	 	\item Energieverlust durch inelastische Stöße mit Hüllenelektronen
+	 	\item \textbf{Bethe-Formel}: Beschreibt Ionisationsverluste schwerer geladener Teilchen
+	 	\begin{itemize}
+          \item[$\rightarrow$] Modifizierte Formel für $\mu$ und $\tau$ in PROPOSAL
+	 	\end{itemize}
+	 	\vspace{5mm}
+	 	\item Bethe-Formel nicht direkt für $e^-$/$e^+$ anwendbar:
+	 	\begin{itemize}
+          \item[$\rightarrow$] Ununterscheidbarkeit der beteiligten Teilchen
+          \item[$\rightarrow$] Identische Massen der beteiligten Teilchen
+	 	\end{itemize}
+	 \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	 \begin{itemize}
+	 	\setlength\itemsep{0.5em}
+	 	\item Für ausreichend \emph{hohe Energieüberträge} können atomare Elektronen als frei betrachtet werden
+	 	\begin{itemize}
+          \item[$\rightarrow$] Ionisation als Bhabha-Streuung ($ e^+ + e^+ \rightarrow e^+ + e^- $)
+          \item[$\rightarrow$] Ionisation als Møller-Streuung ($ e^- + e^- \rightarrow e^- + e^- $)
+	 	\end{itemize}
+        \item Für \emph{kleine Energieüberträge} muss explizit über die atomaren Anregungswahrscheinlichkeiten summiert werden
+		\item[$\Rightarrow$]Erhalte \textbf{Berger-Seltzer Formel}
+	 \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 0.2cm,clip=true]{{plots/dEdx_all}.pdf}
+      \caption*{Vergleiche Ionisationsverluste für $e^-$ und $e^+$ mit verschiedenen Parametrisierungen.}
+      \label{fig:1}
+  \end{figure}
 \end{frame}
 
 
