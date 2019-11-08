@@ -926,6 +926,78 @@ Abweichungen $\epsilon$ zur exakten Formel:
   \end{figure}
 \end{frame}
 
+% Bremsstrahlung
+
+
+\begin{frame}{Bremsstrahlung}
+	 \begin{itemize}
+	 	\setlength\itemsep{0.5em}
+	 	\item \textbf{PROPOSAL} empfiehlt \emph{Complete Screening} als Wirkungsquerschnitt
+	 	\item \textbf{EGS4} benutzt energieabhängige Wirkungsquerschnitte:
+	 	\begin{itemize}
+	 		\item[$\rightarrow$] $E>\SI{50}{\mega\electronvolt}$: Vergleichbar mit \emph{Complete Screening}
+	 		\item[$\rightarrow$] $E<\SI{50}{\mega\electronvolt}$: Empirische Korrekturfaktoren für niedrige Energien
+	 	\end{itemize}
+	 	\item[$\Rightarrow$] Vergleiche verschiedene Implementationen
+	 \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.9\textheight, trim=0.3cm 0.5cm 0.4cm 0.2cm,clip=true]{{plots/brems/brems_dEdx_sr}.pdf}
+      \caption*{Vergleiche Bremsstrahlungsverluste für Elektronen für verschiedene Parametrisierungen.}
+      \label{fig:1}
+  \end{figure}
+\end{frame}
+
+% Annihilation
+
+
+\begin{frame}{Schwache Wechselwirkung}
+  \begin{columns}
+
+    \column{0.45\textwidth}
+    \begin{center}
+      \begin{tikzpicture}
+      \centering
+       % Sizes
+       \pgfmathsetmacro{\len}{0.05cm}
+       \pgfmathsetmacro{\halflen}{\len/4}
+       \pgfmathsetmacro{\vertexsize}{\len/20}
+       \begin{feynman}
+           % vertices
+           \vertex (c) at (0, 0);
+           \vertex (b) at (0, -1.5*\len);
+           \vertex (a) at (-1*\len, -2*\len);
+           \vertex (f) at (+1*\len, -2*\len);
+           \vertex (d) at (-1*\len, 0.5*\len);
+           \vertex (e) at (+1*\len, 0.5*\len);
+     
+           % draw diagram
+           \diagram* {
+             (a) -- [fermion] (b) -- [fermion] (c) -- [fermion] (d),
+             (c) -- [boson, edge label=\(\gamma\)] (e),
+             (b) -- [boson, edge label=\(\gamma\)] (f)
+           };
+
+           % labels
+           \node[left] at (d) {$e^+$};
+           \node[left] at (a) {$e^-$};
+      \end{feynman}
+    \end{tikzpicture}
+  \end{center}
+
+  \column{0.56\textwidth}
+    \begin{itemize}
+      \item Annihilation eines Positrons mit einem atomaren Elektron
+      \item Annahme: Atomares Elektron frei und in Ruhe
+      \item (Polar)-Winkel vollständig kinematisch bestimmt (2 \rightarrow 2 Prozess)
+    \end{itemize}
+  \end{columns}
+\end{frame}
 
 %%% 4. Ergebnisse
 
