@@ -188,7 +188,33 @@
             \setbeamercolor{block body}{fg=darkgray, bg=tulight}
 
             \begin{block}{3. Schauerpropagation}
-            \end{block}
+            \centering
+            \vspace{2mm}
+      \resizebox{!}{0.15\textheight}{%
+
+            \begin{tikzpicture}
+                  \centering
+                   % Sizes
+                   \pgfmathsetmacro{\len}{0.05cm}
+                   \pgfmathsetmacro{\halflen}{\len/4}
+                   \pgfmathsetmacro{\vertexsize}{\len/20}
+                   \begin{feynman}
+                       % vertices
+                       \vertex (a) at (0, 0);
+                       \vertex (b) at (1.5*\len, 0);
+                       \vertex (c) at (3*\len, 0.75*\len);
+                       \vertex (d) at (3*\len, -0.75*\len);;
+                 
+                       % draw diagram
+                       \diagram* {
+                         (c) -- [fermion] (b) -- [fermion] (d),
+                         (a) -- [boson, edge label=\(\gamma\)] (b),
+                       };   
+                  \end{feynman}
+            \end{tikzpicture}
+            }
+            \vspace{2.5mm}
+           \end{block}
        \end{column}
        \begin{column}{0.4\textwidth}
 
@@ -251,8 +277,34 @@
             \setbeamercolor{block title}{fg=white, bg=darkgray}
             \setbeamercolor{block body}{fg=darkgray, bg=gray}
 
-            \begin{block}{3. Schauerpropagation}
-            \end{block}
+          \begin{block}{3. Schauerpropagation}
+            \centering
+            \vspace{2mm}
+            \resizebox{!}{0.15\textheight}{%
+
+            \begin{tikzpicture}
+                  \centering
+                   % Sizes
+                   \pgfmathsetmacro{\len}{0.05cm}
+                   \pgfmathsetmacro{\halflen}{\len/4}
+                   \pgfmathsetmacro{\vertexsize}{\len/20}
+                   \begin{feynman}
+                       % vertices
+                       \vertex (a) at (0, 0);
+                       \vertex (b) at (1.5*\len, 0);
+                       \vertex (c) at (3*\len, 0.75*\len);
+                       \vertex (d) at (3*\len, -0.75*\len);;
+                 
+                       % draw diagram
+                       \diagram* {
+                         (c) -- [fermion] (b) -- [fermion] (d),
+                         (a) -- [boson, edge label=\(\gamma\)] (b),
+                       };   
+                  \end{feynman}
+            \end{tikzpicture}
+            }
+            \vspace{2.5mm}
+           \end{block}
        \end{column}
        \begin{column}{0.4\textwidth}
 
@@ -511,7 +563,33 @@
             \setbeamercolor{block body}{fg=darkgray, bg=gray}
 
             \begin{block}{3. Schauerpropagation}
-            \end{block}
+            \centering
+            \vspace{2mm}
+      \resizebox{!}{0.15\textheight}{%
+
+            \begin{tikzpicture}
+                  \centering
+                   % Sizes
+                   \pgfmathsetmacro{\len}{0.05cm}
+                   \pgfmathsetmacro{\halflen}{\len/4}
+                   \pgfmathsetmacro{\vertexsize}{\len/20}
+                   \begin{feynman}
+                       % vertices
+                       \vertex (a) at (0, 0);
+                       \vertex (b) at (1.5*\len, 0);
+                       \vertex (c) at (3*\len, 0.75*\len);
+                       \vertex (d) at (3*\len, -0.75*\len);;
+                 
+                       % draw diagram
+                       \diagram* {
+                         (c) -- [fermion] (b) -- [fermion] (d),
+                         (a) -- [boson, edge label=\(\gamma\)] (b),
+                       };   
+                  \end{feynman}
+            \end{tikzpicture}
+            }
+            \vspace{2.5mm}
+           \end{block}
        \end{column}
        \begin{column}{0.4\textwidth}
 
@@ -824,7 +902,33 @@ Abweichungen $\epsilon$ zur exakten Formel:
             \setbeamercolor{block body}{fg=darkgray, bg=tulight}
 
             \begin{block}{3. Schauerpropagation}
-            \end{block}
+            \centering
+            \vspace{2mm}
+      \resizebox{!}{0.15\textheight}{%
+
+            \begin{tikzpicture}
+                  \centering
+                   % Sizes
+                   \pgfmathsetmacro{\len}{0.05cm}
+                   \pgfmathsetmacro{\halflen}{\len/4}
+                   \pgfmathsetmacro{\vertexsize}{\len/20}
+                   \begin{feynman}
+                       % vertices
+                       \vertex (a) at (0, 0);
+                       \vertex (b) at (1.5*\len, 0);
+                       \vertex (c) at (3*\len, 0.75*\len);
+                       \vertex (d) at (3*\len, -0.75*\len);;
+                 
+                       % draw diagram
+                       \diagram* {
+                         (c) -- [fermion] (b) -- [fermion] (d),
+                         (a) -- [boson, edge label=\(\gamma\)] (b),
+                       };   
+                  \end{feynman}
+            \end{tikzpicture}
+            }
+            \vspace{2.5mm}
+           \end{block}
        \end{column}
        \begin{column}{0.4\textwidth}
 
@@ -956,7 +1060,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 % Annihilation
 
 
-\begin{frame}{Schwache Wechselwirkung}
+\begin{frame}{Annihilation}
   \begin{columns}
 
     \column{0.45\textwidth}
@@ -994,11 +1098,146 @@ Abweichungen $\epsilon$ zur exakten Formel:
     \begin{itemize}
       \item Annihilation eines Positrons mit einem atomaren Elektron
       \item Annahme: Atomares Elektron frei und in Ruhe
+      \item Rein stochastische Wechselwirkung
       \item (Polar)-Winkel vollständig kinematisch bestimmt (2 \rightarrow 2 Prozess)
     \end{itemize}
   \end{columns}
 \end{frame}
 
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 2cm,clip=true]{{plots/annihilation/all_standardrock_stats_10000_Emin_8.0_Emax_8.0_index_1}.pdf}
+      \caption*{Energieverluste von $\num{e4}$ $e^+$ einer Startenergie von $\SI{e8}{\mega\electronvolt}$ durch Gestein, $E_\text{cut} = \SI{500}{\mega\electronvolt}$.}
+      \label{fig:1}
+  \end{figure}
+\end{frame}
+
+
+%% Photopropagation
+
+\section{Schauerpropagation - Photonpropagation}
+
+
+\begin{frame}{Paarbildung}
+  \begin{columns}
+
+    \column{0.4\textwidth}
+    \begin{center}
+      \begin{tikzpicture}
+      \centering
+       % Sizes
+       \pgfmathsetmacro{\len}{0.05cm}
+       \pgfmathsetmacro{\halflen}{\len/4}
+       \pgfmathsetmacro{\vertexsize}{\len/20}
+       \begin{feynman}
+           % vertices
+           \vertex (c) at (0, 0);
+           \vertex (b) at (0, -1.5*\len);
+           \vertex (f) at (-1*\len, -2*\len);
+           \vertex (a) at (+1*\len, -2*\len);
+           \vertex (e) at (-1*\len, 0.5*\len);
+           \vertex (d) at (+1*\len, 0.5*\len);
+     
+           % draw diagram
+           \diagram* {
+             (a) -- [fermion] (b) -- [fermion] (c) -- [fermion] (d),
+             (c) -- [boson] (e),
+             (b) -- [boson] (f)
+           };
+
+           % labels
+           \node[above] at (e) {$\gamma$};
+           \node[below] at (f) {$\gamma_\text{Kern}$};
+
+           \node[above] at (d) {$e^+$};
+           \node[below] at (a) {$e^-$};
+      \end{feynman}
+    \end{tikzpicture}
+  \end{center}
+
+  \column{0.6\textwidth}
+    \begin{itemize}
+      \item Dominierender Prozess für hohe Energien
+      \item Rein stochastische Wechselwirkung
+      \item Analytische, approximative Formel für Wirkungsquerschnitt\footnotemark
+      \item Verschiedene Modelle zur Bestimmung der Ablenkungswinkel der erzeugten Leptonen
+      \begin{itemize}
+        \item[$\rightarrow$] Effekte durch Ablenkung meist vernachlässigbar
+      \end{itemize}
+    \end{itemize}
+  \end{columns}
+  \footnotetext{Yung-Su Tsai, Pair production and bremsstrahlung of charged leptons}
+\end{frame}
+
+
+
+\begin{frame}{Comptonstreuung}
+  \begin{columns}
+
+    \column{0.4\textwidth}
+    \begin{center}
+      \begin{tikzpicture}
+      \centering
+       % Sizes
+       \pgfmathsetmacro{\len}{0.05cm}
+       \pgfmathsetmacro{\halflen}{\len/4}
+       \pgfmathsetmacro{\vertexsize}{\len/20}
+       \begin{feynman}
+           % vertices
+           \vertex (a) at (0, 0);
+           \vertex (b) at (1.5*\len, 0);
+           \vertex (c) at (-0.5*\len, 0.75*\len);
+           \vertex (d) at (2*\len, 0.75*\len);
+           \vertex (e) at (-0.5*\len, -0.75*\len);
+           \vertex (f) at (2*\len, -0.75*\len);
+     
+           % draw diagram
+           \diagram* {
+             (e) -- [fermion] (a) -- [fermion] (b) -- [fermion] (f),
+             (c) -- [boson] (a),
+             (b) -- [boson] (d)
+           };
+
+           % labels
+           \node[left] at (c) {$\gamma$};
+           \node[right] at (d) {$\gamma$};
+
+           \node[left] at (e) {$e^-$};
+           \node[right] at (f) {$e^-$};
+      \end{feynman}
+    \end{tikzpicture}
+  \end{center}
+
+  \column{0.6\textwidth}
+    \begin{itemize}
+      \item Dominierender Prozess für niedrige Energien
+      \item Wirkungsquerschnitt durch Klein-Nishina-Formel gegeben
+      \item Ablenkungswinkel eindeutig durch Energien bestimmt
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.8\textheight, trim=0.5cm 0.5cm 0.4cm 2cm,clip=true]{{plots/compton/compton}.pdf}
+      \caption*{Klein-Nishina-Formel, differentiell in $\cos\left( \theta \right)$. Die radiale Achse zeigt den differentiellen Wirkungsquerschnitt in arbiträren Einheiten.}
+      \label{fig:1}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+      \centering
+      \includegraphics[height=0.9\textheight, trim=0cm 0cm 0.0cm 1.2cm,clip=true]{{plots/compton/compton_comparison_air}.pdf}
+      \caption*{Vergleich der totalen Wirkungsquerschnitte für Photonen in Luft.}
+      \label{fig:1}
+  \end{figure}
+\end{frame}
 %%% 4. Ergebnisse
 
 

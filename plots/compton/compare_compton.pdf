@@ -1,0 +1,14 @@
+import pyPROPOSAL as pp
+import numpy as np
+import matplotlib.pyplot as plt
+
+gamma = pp.particle.GammaDef.get()
+medium_list = [
+    #pp.medium.Hydrogen(1.0),
+    pp.medium.StandardRock(1.0),
+    #pp.medium.Iron(1.0),
+    #pp.medium.Lead(1.0),
+    #pp.medium.Uranium(1.0),
+    #pp.medium.Air(1.0)
+]
+energy_cut_settings = pp.EnergyCutSettings(1e-10, -1)

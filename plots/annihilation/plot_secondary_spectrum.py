@@ -189,17 +189,16 @@ def propagate_muons():
     vcut = -1
 
     sector_def = pp.SectorDefinition()
-    sector_def.do_continuous_randomization = True
+    sector_def.do_continuous_randomization = False
     sector_def.cut_settings = pp.EnergyCutSettings(ecut, vcut)
     sector_def.medium = pp.medium.StandardRock(1.0)
     sector_def.geometry = geometry
     sector_def.scattering_model = pp.scattering.ScatteringModel.NoScattering
-    sector_def.crosssection_defs.brems_def.lpm_effect = False
-    sector_def.crosssection_defs.epair_def.lpm_effect = False
+    #sector_def.crosssection_defs.brems_def.lpm_effect = True
+    #sector_def.crosssection_defs.epair_def.lpm_effect = False
     sector_def.crosssection_defs.annihilation_def.parametrization = pp.parametrization.annihilation.AnnihilationParametrization.Heitler
     sector_def.crosssection_defs.ioniz_def.parametrization = pp.parametrization.ionization.IonizParametrization.IonizBergerSeltzerBhabha
     sector_def.crosssection_defs.brems_def.parametrization = pp.parametrization.bremsstrahlung.BremsParametrization.ElectronScreening
-    # sector_def.crosssection_defs.photo_def.parametrization = pp.PhotoParametrization.BezrukovBugaev
     # sector_def.do_stochastic_loss_weighting = True
     # sector_def.stochastic_loss_weighting = -0.1
 
@@ -212,11 +211,11 @@ def propagate_muons():
 
     statistics_log = 4
     statistics = int(10**statistics_log)
-    propagation_length = 1e4 # cm
+    propagation_length = 1e10 # cm
     E_min_log = 8.0
     E_max_log = 8.0
     spectral_index = 1
-    pp.RandomGenerator.get().set_seed(1234)
+    pp.RandomGenerator.get().set_seed(1000)
 
     #muon_energies = np.logspace(E_min_log, E_max_log, statistics)
     muon_energies = power_law_sampler(spectral_index, 10**E_min_log, 10**E_max_log, statistics)
