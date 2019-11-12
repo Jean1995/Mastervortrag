@@ -102,6 +102,11 @@
 \tikzstyle{line} = [draw, -latex']
 
 
+% Pseudocode Algorithm
+
+\usepackage[german,onelanguage]{algorithm2e} %for psuedo code
+
+
 % Evaluate at command
 
 \NewDocumentCommand{\evalat}{sO{\big}mm}{%
@@ -145,7 +150,7 @@
 
 %%% Content
 
-\begin{frame}{Inhalt}
+\begin{frame}[noframenumbering]{Inhalt}
    \begin{columns}
        \begin{column}{0.4\textwidth}
 
@@ -235,7 +240,7 @@
 
 % Contents slide
 
-\begin{frame}{Inhalt}
+\begin{frame}[noframenumbering]{Inhalt}
    \begin{columns}
        \begin{column}{0.4\textwidth}
 
@@ -521,7 +526,7 @@
 
 \section{}
 
-\begin{frame}{Inhalt}
+\begin{frame}[noframenumbering]{Inhalt}
    \begin{columns}
        \begin{column}{0.4\textwidth}
 
@@ -860,7 +865,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 
 \section{}
 
-\begin{frame}{Inhalt}
+\begin{frame}[noframenumbering]{Inhalt}
    \begin{columns}
        \begin{column}{0.4\textwidth}
 
@@ -1238,12 +1243,235 @@ Abweichungen $\epsilon$ zur exakten Formel:
       \label{fig:1}
   \end{figure}
 \end{frame}
+
+
+\begin{frame}
+  \begin{columns}
+    \column{0.55\textwidth}
+      Mittlere freie Weglänge $\overline{\ell}$ für hochenergetische Photonen gegeben durch
+        \begin{align*}
+            \overline{\ell} \approx \frac{9}{7} X_0
+        \end{align*}
+      mit der Strahlungslänge in Luft: $X_0 \approx \SI{36.62}{\gram\per\square\centi\metre}$
+  \column{0.45\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.65\textheight, trim=0cm 0cm 0.0cm 1.2cm,clip=true]{{plots/rad_length/rad_length}.pdf}
+          \caption*{Reichweite von Photonen in Luft}
+          \label{fig:1}
+      \end{figure}
+  \end{columns}
+\end{frame}
+
 %%% 4. Ergebnisse
 
 
+\section{}
+
+\begin{frame}[noframenumbering]{Inhalt}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=darkgray}
+            \setbeamercolor{block body}{fg=darkgray, bg=gray}
+
+            \begin{block}{1. Einführung in PROPOSAL}
+              \centering
+                \vspace{2mm}
+              \includegraphics[height=0.15\textheight]{plots/muon_path.pdf}
+                \vspace{2mm}
+            \end{block}
+       \end{column}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=darkgray}
+            \setbeamercolor{block body}{fg=darkgray, bg=gray}
+
+            \begin{block}{2. Seltene Prozesse}
+            \centering
+            \vspace{2mm}
+      \resizebox{!}{0.15\textheight}{%
+            \begin{tikzpicture}
+              \centering
+                    
+            \draw [line width=0.8mm, blue] (-1.9, 1.8) -- node[below] {$\mu$}  (0.9, 1.);     
+            \draw [line width=0.8mm, black, dashed, ->, >=stealth] (0.9, 1.) -- node[below] {$\nu_{\mu}$}  (0.9+1.4+0.35, 1. - 0.4 - 0.1);      
+            \draw[red,fill=red] (0.9, 1.) circle (0.7ex) node[label=above: $\scriptsize \text{CC}$]{};
+          \end{tikzpicture}
+        }
+      \vspace{3mm}
+            \end{block}
+       \end{column}
+   \end{columns}
+   \begin{columns}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=darkgray}
+            \setbeamercolor{block body}{fg=darkgray, bg=gray}
+
+            \begin{block}{3. Schauerpropagation}
+            \centering
+            \vspace{2mm}
+      \resizebox{!}{0.15\textheight}{%
+
+            \begin{tikzpicture}
+                  \centering
+                   % Sizes
+                   \pgfmathsetmacro{\len}{0.05cm}
+                   \pgfmathsetmacro{\halflen}{\len/4}
+                   \pgfmathsetmacro{\vertexsize}{\len/20}
+                   \begin{feynman}
+                       % vertices
+                       \vertex (a) at (0, 0);
+                       \vertex (b) at (1.5*\len, 0);
+                       \vertex (c) at (3*\len, 0.75*\len);
+                       \vertex (d) at (3*\len, -0.75*\len);;
+                 
+                       % draw diagram
+                       \diagram* {
+                         (c) -- [fermion] (b) -- [fermion] (d),
+                         (a) -- [boson, edge label=\(\gamma\)] (b),
+                       };   
+                  \end{feynman}
+            \end{tikzpicture}
+            }
+            \vspace{2.5mm}
+           \end{block}
+       \end{column}
+       \begin{column}{0.4\textwidth}
+
+            \setbeamercolor{block title}{fg=white, bg=tugreen}
+            \setbeamercolor{block body}{fg=darkgray, bg=tulight}
+
+           \begin{block}{4. Ergebnisse}
+              \centering
+                \vspace{2mm}
+              \includegraphics[height=0.15\textheight]{plots/shower_nolegend.png}
+                \vspace{2mm}
+           \end{block}
+       \end{column}
+   \end{columns}
+\end{frame}
+
+
+\section{Ergebnisse}
+
+\begin{frame}{Erstellung eines Teilchenschauers}
+\begin{center}
+\begin{minipage}{0.7\textwidth}
+\begin{figure}
+\begin{algorithm}[H] %or another one check
+\DontPrintSemicolon
+     \SetAlgoLined
+    Teilchenliste = [Primärteilchen]\;
+     \While{Teilchenliste nicht leer}{
+      Entnehme erstes Teilchen aus Teilchenliste\;
+      Propagiere Teilchen\;
+      Füge alle Sekundärteilchen der Teilchenliste hinzu\;
+     }
+
+\end{algorithm}
+\caption*{Vereinfachter Algorithmus zur Schauerpropagation in \textbf{PROPOSAL}.}
+\end{figure}
+\end{minipage}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+   \vspace{-5mm}
+  \begin{columns}
+    \begin{column}{0.33\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e5.pdf}
+          \caption*{$E = \SI{e5}{\mega\electronvolt}$}
+      \end{figure}
+    \end{column}
+
+
+    \begin{column}{0.33\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e6.pdf}
+          \caption*{$E = \SI{e6}{\mega\electronvolt}$}
+      \end{figure}
+    \end{column}
+
+    \begin{column}{0.33\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e7.pdf}
+          \caption*{$E = \SI{e7}{\mega\electronvolt}$}
+      \end{figure}    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+   \vspace{-3mm}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.7\textheight]{shower_presentation/hist_1e5.pdf}
+          \caption*{$E = \SI{e6}{\mega\electronvolt}$}
+      \end{figure}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.7\textheight]{shower_presentation/hist_1e6.pdf}
+          \caption*{$E = \SI{e7}{\mega\electronvolt}$}
+      \end{figure}    
+    \end{column}
+  \end{columns}
+  \begin{figure}
+  \caption*{Teilchenanzahl gegen die Schauertiefe, verglichen mit dem erwarteten Schauermaximum im Heitler-Schauer-Modell.}
+  \end{figure}
+\end{frame}
+
 %%% End
 
-\section{}
+\section{Zusammenfassung und Ausblick}
+
+\begin{frame}{Zusammenfassung}
+    \textbf{Seltene Prozesse}
+   \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item Myonpaarproduktion als neuer Prozess verfügbar 
+    \item Schwache Wechselwirkung als neuer Prozess verfügbar
+   \end{itemize}
+
+   \textbf{Schauerpropagation}
+   \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item Überarbeitere Wechselwirkungen für $e^+/e^-$
+    \item Annihilation als neuer Prozess für $e^+$
+    \item Paarbildung und Comptonstreuung als Prozesse für Photonen
+    \item[$\Rightarrow$] Propagation elektromagnetischer Schauer in PROPOSAL prinzipiell möglich
+   \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ausblick}
+    \textbf{Seltene Prozesse}
+   \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item Explizite Simulationen nötig um die Relevanz der neuen Prozesse überprüfen zu können
+   \end{itemize}
+
+   \textbf{Schauerpropagation}
+   \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item Untersuche Schauerpropagation in inhomogenen Medien (realistische Atmosphäre)
+    \item Einbindung von \textbf{PROPOSAL} in \textbf{CORSIKA}
+    \item[$\rightarrow$] Komplette Schauerpropagation
+    \item[$\rightarrow$] Vergleiche mit anderen physikalischen Modellen (z.B. EGS5, EmCa)
+   \end{itemize}
+\end{frame}
+
 
 \begin{frame}[t]
   \vspace{-5mm}
