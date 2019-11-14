@@ -209,7 +209,7 @@ def propagate_muons():
 
     prop = pp.Propagator(mu_def, [sector_def], detector, interpolation_def)
 
-    statistics_log = 4
+    statistics_log = 5
     statistics = int(10**statistics_log)
     propagation_length = 1e10 # cm
     E_min_log = 8.0
@@ -416,7 +416,7 @@ def plot_secondary_spectrum(data_name):
         histtype='step',
         log=True,
         bins=100,
-        label=['Ionization', 'Photonuclear', 'Bremsstrahlung', r'$e$ Pair production', 'Annihilation', 'Sum']
+        label=['Ionisation', 'Photonuklear', 'Bremsstrahlung', r'$e$ Paarproduktion', 'Annihilation', 'Summe']
     )
     # ax_all.set_ylim(ymin=0)
     minor_locator = AutoMinorLocator()

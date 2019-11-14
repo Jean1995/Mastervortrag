@@ -126,7 +126,7 @@
 
 \author[jean-marco.alameddine@udo.edu]{Jean-Marco Alameddine}
 \title{Masterarbeit - Aktueller Stand}      
-\date[01.11.2019]{01.11.2019}
+\date[15.11.2019]{15.11.2019}
 
 \institute[%
   {\includegraphics[height=0.9\headerheight]{e5b.pdf}}%
@@ -403,7 +403,7 @@
           \node [block, below of=zero] (one) {Würfle Energie $E_f$ bei welcher der nächste stoch. Verlust auftritt};
           \onslide<2>{\node [blockH, below of=zero] (one) {Würfle Energie $E_f$ bei welcher der nächste stoch. Verlust auftritt};}
       
-          \node [block, below of=one] (two) {Berechnte Strecke bis zum nächsten stoch. Verlust};
+          \node [block, below of=one] (two) {Berechne Strecke bis zum nächsten stoch. Verlust};
           \onslide<3>{\node [blockH, below of=one] (two) {Berechnte Strecke bis zum nächsten stoch. Verlust};}
       
           \node [block, below of=two] (three) {Würfle Art des stoch. Verlustes};
@@ -975,6 +975,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
         \item Beschreibung der elektromagnetischen Wechselwirkungen durch \textbf{EGS4}
         \begin{itemize}
           \item[$\rightarrow$] Ziel: Ermögliche Nutzung von \textbf{PROPOSAL} in \textbf{CORSIKA 8}
+          \item[$\rightarrow$] Aufgabe: Propagation von $e^+$, $e^-$ und $\gamma$ in \textbf{PROPOSAL}
         \end{itemize}
       \end{itemize}
   \end{center}
@@ -1017,7 +1018,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 	 	\setlength\itemsep{0.5em}
 	 	\item Für ausreichend \emph{hohe Energieüberträge} können atomare Elektronen als frei betrachtet werden
 	 	\begin{itemize}
-          \item[$\rightarrow$] Ionisation als Bhabha-Streuung ($ e^+ + e^+ \rightarrow e^+ + e^- $)
+          \item[$\rightarrow$] Ionisation als Bhabha-Streuung ($ e^+ + e^- \rightarrow e^+ + e^- $)
           \item[$\rightarrow$] Ionisation als Møller-Streuung ($ e^- + e^- \rightarrow e^- + e^- $)
 	 	\end{itemize}
         \item Für \emph{kleine Energieüberträge} muss explizit über die atomaren Anregungswahrscheinlichkeiten summiert werden
@@ -1041,7 +1042,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 \begin{frame}{Bremsstrahlung}
 	 \begin{itemize}
 	 	\setlength\itemsep{0.5em}
-	 	\item \textbf{PROPOSAL} empfiehlt \emph{Complete Screening} als Wirkungsquerschnitt
+	 	\item \textbf{PROPOSAL} empfiehlt \emph{Complete Screening} als Wirkungsquerschnitt für Elektronen
 	 	\item \textbf{EGS4} benutzt energieabhängige Wirkungsquerschnitte:
 	 	\begin{itemize}
 	 		\item[$\rightarrow$] $E>\SI{50}{\mega\electronvolt}$: Vergleichbar mit \emph{Complete Screening}
@@ -1113,8 +1114,8 @@ Abweichungen $\epsilon$ zur exakten Formel:
 \begin{frame}
   \begin{figure}
       \centering
-      \includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 2cm,clip=true]{{plots/annihilation/all_standardrock_stats_10000_Emin_8.0_Emax_8.0_index_1}.pdf}
-      \caption*{Energieverluste von $\num{e4}$ $e^+$ einer Startenergie von $\SI{e8}{\mega\electronvolt}$ durch Gestein, $E_\text{cut} = \SI{500}{\mega\electronvolt}$.}
+      \includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 2cm,clip=true]{{plots/annihilation/all_standardrock_stats_100000_Emin_8.0_Emax_8.0_index_1}.pdf}
+      \caption*{Energieverluste von $\num{e5}$ $e^+$ einer Startenergie von $\SI{e8}{\mega\electronvolt}$ durch Gestein, $E_\text{cut} = \SI{500}{\mega\electronvolt}$.}
       \label{fig:1}
   \end{figure}
 \end{frame}
