@@ -43,7 +43,7 @@ for param in param_list_compton:
 energy_list = np.logspace(0, 5, 1000)
 for cross_photopair, cross_compton, medium in zip(crosssection_list_photopair, crosssection_list_compton, medium_list):
     sigma_photopair = np.vectorize(cross_photopair.calculate_dNdx)(energy_list)
-    plt.loglog(energy_list, sigma_photopair, label="Paarerzeugung")
+    plt.loglog(energy_list, sigma_photopair, label=r'$e$-Paarbildung')
     sigma_compton = np.vectorize(cross_compton.calculate_dNdx)(energy_list)
     plt.loglog(energy_list, sigma_compton, label="Compton")
     plt.ylabel(r'$\sigma$', fontsize=14)
