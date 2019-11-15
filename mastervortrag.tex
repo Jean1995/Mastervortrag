@@ -326,43 +326,33 @@
    \end{columns}
 \end{frame}
 
+
 \section{Einführung in PROPOSAL - Motivation}
 
 \begin{frame}
       \begin{aquote}{"Der Leptonpropagator PROPOSAL" - Dissertation von Jan-Hendrik Köhne}
-      Ziel ist es ein Monte-Carlo Programm zu entwickeln, welches einerseits die bei der \textcolor{red}{Propagation von Leptonen} auftauchende große Anzahl an Wechselwirkungen (einige tausend)
-      mit \textcolor{red}{großer Genauigkeit} beschreibt und andererseits den \textcolor{red}{algorithmischen Fehler} so gering wie möglich hält. 
+      Ziel ist es ein Monte-Carlo Programm zu entwickeln, welches einerseits die bei der Propagation von Leptonen auftauchende \textcolor{red}{große Anzahl} an Wechselwirkungen (einige tausend)
+      mit \textcolor{red}{großer Genauigkeit} beschreibt und andererseits den algorithmischen Fehler so gering wie möglich hält. 
       \end{aquote}
 \end{frame}
 
-\begin{frame}
-  \begin{columns}
-    \column{0.62\textwidth}
-    \begin{center}
-      \begin{itemize}
-        \setlength\itemsep{0.5em}
-        \item \textbf{PROPOSAL}: \CC-Bibliothek mit Python Bindings
-        \item Simulation der physikalischen Wechselwirkungen hochenergetischer Teilchen
-        \begin{itemize}
-          \item[$\rightarrow$] Energieverluste durch Interaktionen
-          \item[$\rightarrow$] Vielfachstreuung
-          \item[$\rightarrow$] Zerfall am Ende der Lebensdauer
-        \end{itemize}
-        \item Verschiedene Parametrisierungen für die physikalischen Wechselwirkungen verfügbar
-        \begin{itemize}
-          \item[$\rightarrow$] Untersuche Auswirkungen auf Simulationen
-        \end{itemize}
-      \end{itemize}
-  \end{center}
-  \column{0.35\textwidth}
-      \begin{figure}
-          \centering
-          \includegraphics[width=0.8\linewidth]{plots/github.pdf}
-           \captionsetup{format=myformat}
-          \caption*{https://github.com/tudo-astroparticlephysics/PROPOSAL}
-      \end{figure}
-  \end{columns}
 
+\begin{frame}
+  \begin{itemize}
+    \setlength\itemsep{0.8em}
+    \item \textbf{PROPOSAL}: \CC-Bibliothek mit Python Bindings
+    \item Simulation der Wechselwirkungen von hochenergetischen Teilchen
+    \begin{itemize}
+      \item[$\rightarrow$] Energieverluste
+      \item[$\rightarrow$] Vielfachstreuung
+      \item[$\rightarrow$] Zerfall
+    \end{itemize}
+    \item Verschiedene Wechselwirkungsparametrisierungen verfügbar
+    \begin{itemize}
+      \item[$\rightarrow$] Untersuche Auswirkungen auf Simulationen
+    \end{itemize}
+    \item Nutzung von Interpolationstabellen
+  \end{itemize}
 \end{frame}
 
 \section{Einführung in PROPOSAL - Algorithmus}
@@ -503,7 +493,7 @@
       \only<2>{\includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 0.5cm,clip=true]{plots/cont_rand_1.pdf}}
       \only<3>{\includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 0.5cm,clip=true]{plots/cont_rand_2.pdf}}
       \only<4>{\includegraphics[height=0.9\textheight, trim=0.5cm 0.5cm 0.4cm 0.5cm,clip=true]{plots/cont_rand_3.pdf}}
-      \caption*{Propagation von $\num{e4}$ Myonen einer Startenergie von $\SI{e8}{\mega\electronvolt}$ durch $\SI{300}{\metre}$ Stein.}
+      \caption*{Propagation von $\num{5e4}$ Myonen einer Startenergie von $\SI{e8}{\mega\electronvolt}$ durch $\SI{300}{\metre}$ Stein.}
       \label{fig:1}
       \end{overprint}
   \end{figure}
@@ -719,32 +709,58 @@ Abweichungen $\epsilon$ zur exakten Formel:
 
 
 \begin{frame}{Relevanz}
-	\textbf{IceCube-Ereignisse}
-	 \begin{itemize}
-	 	\setlength\itemsep{0.5em}
-	 	\item "Energieverluste" aufgrund von Myonpaarproduktion vernachlässigbar
-	 	\item Veränderte Signatur von einem Myon-Bündel im Vergleich zu einem einzelnen hochenergetischen Myon 
-	 \end{itemize}
+  \textbf{IceCube-Ereignisse}
+   \begin{itemize}
+    %\setlength\itemsep{0.5em}
+    \item "Energieverluste" aufgrund von Myonpaarproduktion vernachlässigbar
+    \item Myon-Bündel und einzelne Myonen mit unterschiedlichen Signaturen
+    %\item Veränderte Signatur von einem Myon-Bündel im Vergleich zu einem einzelnen hochenergetischen Myon 
+   \end{itemize}
+     \vspace{3mm}
+     \textbf{Luftschauer}\footnote{Kudryavtsev, Korolkova, Spooner: Physical Letter B 471, 1999, pp. 251-256}
+   \begin{itemize}
+    %\setlength\itemsep{0.5em}   
+    \item Zwei mögliche Quellen für Myon-Bündel in Untergrundexperimenten:
+    \begin{itemize}
+      \item[$\rightarrow$] Hardronische Komponente in Luftschauern
+      \item[$\rightarrow$] Myonpaarproduktion in Stein/Wasser
+    \end{itemize}
+    \item Messe Anzahl und Eigenschaften von Myon-Bündeln
+    \begin{itemize}
+      \item[$\rightarrow$] Informationen über hadronische Wechselwirkungsmodelle
+      \item[$\rightarrow$] Informationen über Schauerkomposition
+    \end{itemize}
+   \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Relevanz}
-	 \textbf{Luftschauer}\footnote{Kudryavtsev, Korolkova, Spooner: Physical Letter B 471, 1999, pp. 251-256}
-	 \begin{itemize}
-	 	\setlength\itemsep{0.5em}	 	
-	 	\item Zwei mögliche Quellen für Myon-Bündel in Untergrundexperimenten:
-	 	\begin{itemize}
-	 		\item[$\rightarrow$] Hardronische Komponente in Luftschauern
-	 		\item[$\rightarrow$] Myonpaarproduktion in Stein/Wasser
-	 	\end{itemize}
-	 	\vspace{5mm}
-	 	\item Messe Anzahl und Eigenschaften von Myon-Bündeln
-	 	\begin{itemize}
-	 		\item[$\rightarrow$] Informationen über hadronische Wechselwirkungsmodelle
-	 		\item[$\rightarrow$] Informationen über Schauerkomposition
-	 	\end{itemize}
-	 \end{itemize}
-\end{frame}
+%\begin{frame}{Relevanz}
+%	\textbf{IceCube-Ereignisse}
+%	 \begin{itemize}
+%	 	\setlength\itemsep{0.5em}
+%	 	\item "Energieverluste" aufgrund von Myonpaarproduktion vernachlässigbar
+%	 	\item Veränderte Signatur von einem Myon-Bündel im Vergleich zu einem einzelnen hochenergetischen Myon 
+%	 \end{itemize}
+%\end{frame}
+%
+%
+%\begin{frame}{Relevanz}
+%	 \textbf{Luftschauer}\footnote{Kudryavtsev, Korolkova, Spooner: Physical Letter B 471, 1999, pp. 251-256}
+%	 \begin{itemize}
+%	 	\setlength\itemsep{0.5em}	 	
+%	 	\item Zwei mögliche Quellen für Myon-Bündel in Untergrundexperimenten:
+%	 	\begin{itemize}
+%	 		\item[$\rightarrow$] Hardronische Komponente in Luftschauern
+%	 		\item[$\rightarrow$] Myonpaarproduktion in Stein/Wasser
+%	 	\end{itemize}
+%	 	\vspace{5mm}
+%	 	\item Messe Anzahl und Eigenschaften von Myon-Bündeln
+%	 	\begin{itemize}
+%	 		\item[$\rightarrow$] Informationen über hadronische Wechselwirkungsmodelle
+%	 		\item[$\rightarrow$] Informationen über Schauerkomposition
+%	 	\end{itemize}
+%	 \end{itemize}
+%\end{frame}
 
 % Schwache Wechselwirkung
 
@@ -1043,7 +1059,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
 	 \begin{itemize}
 	 	\setlength\itemsep{0.5em}
     \item Bremsstrahlung dominierende Wechselwirkung für Elektronen und Positronen
-	 	\item \textbf{PROPOSAL} empfiehlt \emph{Complete Screening} als Wirkungsquerschnitt für hochenergetische Elektronen
+	 	\item \textbf{PROPOSAL} stellt \emph{Complete Screening} als Wirkungsquerschnitt für hochenergetische Elektronen zur Verfügung
 	 	\item \textbf{EGS4} benutzt energieabhängige Wirkungsquerschnitte:
 	 	\begin{itemize}
 	 		\item[$\rightarrow$] $E>\SI{50}{\mega\electronvolt}$: Vergleichbar mit \emph{Complete Screening}
@@ -1386,7 +1402,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
     \begin{column}{0.33\textwidth}
       \begin{figure}
           \centering
-          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e5.pdf}
+          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e5.png}
           \caption*{$E = \SI{e5}{\mega\electronvolt}$}
       \end{figure}
     \end{column}
@@ -1395,7 +1411,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
     \begin{column}{0.33\textwidth}
       \begin{figure}
           \centering
-          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e6.pdf}
+          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e6.png}
           \caption*{$E = \SI{e6}{\mega\electronvolt}$}
       \end{figure}
     \end{column}
@@ -1403,9 +1419,41 @@ Abweichungen $\epsilon$ zur exakten Formel:
     \begin{column}{0.33\textwidth}
       \begin{figure}
           \centering
-          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e7.pdf}
+          \includegraphics[height=0.9\textheight]{shower_presentation/2d_shower_1e7.png}
           \caption*{$E = \SI{e7}{\mega\electronvolt}$}
-      \end{figure}    \end{column}
+      \end{figure}    
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+   \vspace{-5mm}
+  \begin{columns}
+    \begin{column}{0.33\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.6\textheight]{daten/xy_1e5.jpg}
+          \caption*{$E = \SI{e5}{\mega\electronvolt}$}
+      \end{figure}
+    \end{column}
+
+
+    \begin{column}{0.33\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.6\textheight]{daten/xy_1e6.jpg}
+          \caption*{$E = \SI{e6}{\mega\electronvolt}$}
+      \end{figure}
+    \end{column}
+
+    \begin{column}{0.33\textwidth}
+      \begin{figure}
+          \centering
+          \includegraphics[height=0.6\textheight]{daten/xy_1e7.jpg}
+          \caption*{$E = \SI{e7}{\mega\electronvolt}$}
+      \end{figure}    
+    \end{column}
   \end{columns}
 \end{frame}
 
@@ -1452,7 +1500,7 @@ Abweichungen $\epsilon$ zur exakten Formel:
     \item Überarbeitere Wechselwirkungen für $e^+/e^-$
     \item Annihilation als neuer Prozess für $e^+$
     \item Paarbildung und Comptonstreuung als Prozesse für Photonen
-    \item[$\Rightarrow$] Propagation elektromagnetischer Schauer in PROPOSAL prinzipiell möglich
+    \item[$\Rightarrow$] Propagation von Teilchen in elektromagnetischen Schauern \\mit PROPOSAL möglich
    \end{itemize}
 \end{frame}
 

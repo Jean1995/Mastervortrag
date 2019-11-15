@@ -17,6 +17,7 @@ try:
 except ImportError:
     raise ImportError("pyPROPOSAL not installed!")
 
+from timeit import default_timer as timer
 
 def muons(energy, statistics, vcut, do_continuous_randomization, dist):
 
@@ -32,7 +33,7 @@ def muons(energy, statistics, vcut, do_continuous_randomization, dist):
     sec_def.cut_settings.vcut = vcut
 
     interpolation_def = pp.InterpolationDef()
-    interpolation_def.path_to_tables = "tables"
+    interpolation_def.path_to_tables = ""
 
     prop = pp.Propagator(
             particle_def=pp.particle.MuMinusDef.get(),
@@ -66,13 +67,25 @@ if __name__ == "__main__":
     # =========================================================
 
     energy = 1e8
-    statistics = int(1e4)
+    statistics = int(5e4)
     dist = 300
     binning = 100
 
+
+    start = timer()
     energies_1 = muons(energy, statistics, 0.05, False, dist)
+    end1 = timer()
     energies_2 = muons(energy, statistics, 0.0001, False, dist)
+    end2 = timer()
     energies_3 = muons(energy, statistics, 0.05, True, dist)
+    end3 = timer()
+
+    time1 = statistics / (end1-start)
+    time2 = statistics / (end2 - end1)
+    time3 = statistics / (end3 - end2)
+    print("0.05, no rand: " + str(time1)) # all in per second
+    print("0.0001, no rand: " + str(time2))
+    print("0.05, rand: " + str(time3))
 
     tex_preamble = [
         r"\usepackage{amsmath}",
@@ -108,7 +121,7 @@ if __name__ == "__main__":
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    ax.set_xlabel(r'Finale Energie / MeV')
+    ax.set_xlabel(r'Finale Myonenergie / MeV')
     ax.set_ylabel(r'Anzahl')
 
     fig.tight_layout()
@@ -122,7 +135,7 @@ if __name__ == "__main__":
         histtype="step",
         log=True,
         bins=binning,
-        label=r"$v_\text{cut} = 0.05$"
+        label=r"$v_\text{{cut}} = 0.05, \,  \text{{Teilchen pro Sekunde: }} {}$".format(int(round(time1)))
     )
 
     ax.legend(loc='upper left')
@@ -134,7 +147,7 @@ if __name__ == "__main__":
         histtype="step",
         log=True,
         bins=binning,
-        label=r"$v_\text{cut} = 10^{-4}$"
+        label=r"$v_\text{{cut}} = 10^{{-4}}, \,  \text{{Teilchen pro Sekunde: }} {}$".format(int(round(time2)))
     )
 
     ax.legend(loc='upper left')
@@ -145,7 +158,7 @@ if __name__ == "__main__":
         histtype="step",
         log=True,
         bins=binning,
-        label=r"$v_\text{cut} = 0.05$ mit kont."
+        label=r"$v_\text{{cut}} = 0.05, \text{{ mit kont.,}} \,  \text{{Teilchen pro Sekunde: }} {}$".format(int(round(time3)))
     )
 
     ax.legend(loc='upper left')

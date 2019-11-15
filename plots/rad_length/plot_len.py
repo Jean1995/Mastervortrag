@@ -15,7 +15,7 @@ prop = pp.Propagator(particle_def=photon_def, config_file="config_rad_length.jso
 particle_to_prop = prop.particle
 particle_backup = pp.particle.Particle(particle_to_prop)
 
-statistics = 2e5
+statistics = 1e5
 particle_backup.direction = pp.Vector3D(0, 0, -1)
 particle_backup.position = pp.Vector3D(0, 0, 1000000)
 particle_backup.propagated_distance = 0
@@ -42,6 +42,7 @@ for E in energies:
 plt.plot(energies, L_mc_list, 'x', label='PROPOSAL')
 plt.axhline(y = L_theorie, label=r'$\overline{\ell}$', color='k', linestyle='dashed', linewidth=1)
 plt.xscale('log')
+plt.yscale('log')
 plt.legend()
 plt.grid()
 plt.xlabel('E \ MeV')
